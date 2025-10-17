@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HNG PROFILE CARD</title>
+   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    :root {
+      --bg: #f9f9f9;
+      --primary: #2d6cdf;
+      --text: black;
+      --border-radius: 1rem;
+    }
+
+    body {
+      background-color: var(--bg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 1rem;
+    }
+    article[data-testid="test-profile-card"] {
+      background: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      width: 100%;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      padding: 20px;
+    }
+
+    figure {
+      margin: 0;
+      text-align: center;
+      background-color: #f0f0f0;
+      padding: 1rem;
+    }
+
+    img[data-testid="test-user-avatar"] {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%; 
+    }
+
+    header {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    h2[data-testid="test-user-name"] {
+      margin: 0;
+      color: var(--primary);
+    }
+
+    p[data-testid="test-user-bio"] {
+      text-align: center;
+      color: var(--text);
+      padding: 0 1rem;
+    }
+
+    nav[data-testid="test-user-social-links"] {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    nav a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:focus,
+    nav a:hover {
+      text-decoration: underline;
+      outline: none;
+    }
+
+    section {
+      padding: 0 1rem 1rem 1rem;
+    }
+
+    ul {
+      list-style: circle;
+      padding-left: 1.2rem;
+      margin: 0.5rem 0;
+    }
+
+    small[data-testid="test-user-time"] {
+      display: block;
+      text-align: center;
+      color: #666;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Responsive layout */
+    @media (min-width: 700px) {
+      article[data-testid="test-profile-card"] {
+        flex-direction: row;
+        align-items: center;
+        max-width: 700px;
+      }
+      img{
+        margin-right: 30px;
+      }
+      figure {
+        flex: 1;
+        padding: 2rem;
+      }
+
+      .content {
+        flex: 2;
+        text-align: left;
+      }
+
+      header, p {
+        text-align: left;
+      }
+
+      nav {
+        justify-content: flex-start;
+      }
+    }
+    @media (min-width: 365px){
+      img{
+        margin-left: 52px;
+      }
+    }
+  </style>
+</head>
+  
+<body class="font-mono">
+  <article data-testid="test-profile-card" aria-label="User profile card">
+    
+      <img 
+        src="./profile picture real.png " 
+        alt="My profile Picture" 
+        data-testid="test-user-avatar"
+      />
+   
+
+    <div class="content">
+      <header>
+        <h2 class="font-mono font-bold text-3xl" data-testid="test-user-name">Samuel Brown</h2>
+      </header>
+
+      <p class="font-mono pb-5" ="test-user-bio">
+        Am a frontend developer With the  passion of creating exceptional user experiences, I am confident that I would be a valuable asset to your team.
+      </p>
+
+      <small data-testid="test-user-time"></small>
+
+      <nav data-testid="test-user-social-links" aria-label="Social media links">
+        <a href="" target="_blank" rel="noopener noreferrer" data-testid="test-u
+        <a href="www.linkedin.com/in/samuel-brown-4b9135378" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-linkedin">LinkedIn</a>
+      </nav>
+      <section>
+        <h3 class=" font-mono text-2xl">Hobbies</h3>
+        <ul  data-testid="test-user-hobbies">
+          <li>Singing</li>
+          <li>Football</li>
+          <li>Dancing</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3 class=" font-mono text-2xl">Dislikes</h3>
+        <ul data-testid="test-user-dislikes">
+          <li>Procrastination</li>
+          <li>Pride</li>
+          <li>People who don't keep to their words</li>
+        </ul>
+      </section>
+    </div>
+  </article>
+
+  <script>
+    // Display current time in milliseconds
+    const timeEl = document.querySelector('[data-testid="test-user-time"]');
+    function updateTime() {
+      timeEl.textContent = `Current time: ${Date.now()} ms`;
+    }
+    updateTime();
+    setInterval(updateTime, 1000);
+  </script>
+ 
+</body>
+</html>
